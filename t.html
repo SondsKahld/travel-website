@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم الرحلات - الفخامة في السفر</title>
+    <!-- استدعاء Tailwind CSS الفريم وورك الأقوى -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- مكتبة الأنيميشن AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- شريط التنقل الزجاجي الاحترافي -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+            <div class="text-2xl font-black text-sky-600 flex items-center gap-2">
+                <i class="fa-solid fa-plane-departure text-amber-500 animate-pulse"></i> عالم الرحلات
+            </div>
+            <nav class="hidden md:flex gap-8 items-center font-semibold">
+                <a href="#" class="hover:text-sky-600 transition-colors">الرئيسية</a>
+                <a href="#destinations" class="hover:text-sky-600 transition-colors">الوجهات</a>
+                <a href="login.html" class="bg-slate-100 px-4 py-2 rounded-lg text-sm hover:bg-slate-200 transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-sky-600"></i> لوحة التحكم
+                </a>
+            </nav>
+            <button class="open-modal-btn bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold px-6 py-2.5 rounded-full shadow-lg shadow-sky-500/30 hover:scale-105 transition-transform duration-300">
+                احجز الآن
+            </button>
+        </div>
+    </header>
+
+    <!-- قسم الواجهة الرئيسية مع أنيميشن الدخول -->
+    <section class="relative h-screen bg-cover bg-center flex flex-col justify-center items-center text-center px-6" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80');">
+        <h1 data-aos="fade-down" data-aos-duration="1000" class="text-4xl md:text-6xl font-black text-white mb-6 drop-shadow-md">
+            ابحث عن مغامرتك القادمة
+        </h1>
+        <p data-aos="fade-up" data-aos-duration="1200" class="text-lg md:text-xl text-slate-200 mb-10 max-w-2xl drop-shadow">
+            نقدم لك أفضل العروض السياحية لأجمل الوجهات حول العالم بتجربة حجز عصرية وسريعة.
+        </p>
+        
+        <!-- صندوق البحث الزجاجي الاحترافي -->
+        <div data-aos="zoom-in" data-aos-duration="1000" class="bg-white/95 backdrop-blur-xl p-4 md:p-6 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-4 w-full max-w-3xl">
+            <div class="flex-1 text-right">
+                <label class="block text-sm font-bold text-slate-600 mb-2">الوجهة المستهدفة</label>
+                <input type="text" id="search-dest" placeholder="الى أين تريد الذهاب؟" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all">
+            </div>
+            <button class="open-modal-btn self-end bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all duration-300">
+                بحث وحجز
+            </button>
+        </div>
+    </section>
+
+    <!-- قسم الوجهات السياحية مع تأثيرات التمرير -->
+    <section class="py-24 max-w-7xl mx-auto px-6" id="destinations">
+        <div data-aos="fade-up" class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">الوجهات الأكثر شعبية</h2>
+            <p class="text-slate-500">اختر وجهتك المفضلة وابدأ رحلة الأحلام معنا اليوم</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- كارد الوجهة الأولى -->
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+                <div class="overflow-hidden relative h-64">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" alt="باريس" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-white/95 backdrop-blur text-sky-600 font-bold px-4 py-1.5 rounded-full text-sm shadow-md">$750</span>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">باريس، فرنسا</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">استمتع بجمال البرج والأجواء الرومانسية الساحرة في قلب أوروبا.</p>
+                    <button class="open-modal-btn w-full bg-sky-50 hover:bg-sky-600 hover:text-white text-sky-600 font-bold py-3 rounded-xl transition-all duration-300" data-destination="باريس، فرنسا">
+                        احجز رحلتك الآن
+                    </button>
+                </div>
+            </div>
+
+            <!-- كارد الوجهة الثانية -->
+            <div data-aos="fade-up" data-aos-delay="400" class="bg-white rounded-2xl overflow-hidden shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+                <div class="overflow-hidden relative h-64">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80" alt="بالي" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <span class="absolute top-4 left-4 bg-white/95 backdrop-blur text-sky-600 font-bold px-4 py-1.5 rounded-full text-sm shadow-md">$600</span>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">بالي، إندونيسيا</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">جزر ساحرة، طبيعة خلابة، وشواطئ هادئة تمنحك الاسترخاء التام.</p>
+                    <button class="open-modal-btn w-full bg-sky-50 hover:bg-sky-600 hover:text-white text-sky-600 font-bold py-3 rounded-xl transition-all duration-300" data-destination="بالي، إندونيسيا">
+                        احجز رحلتك الآن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة الحجز التفاعلية (Modal) -->
+    <div class="modal fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden justify-center items-center p-4">
+        <div class="bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl relative animate-in fade-in zoom-in duration-300">
+            <button class="close-modal absolute top-6 left-6 text-slate-400 hover:text-slate-700 text-xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-2xl font-black text-slate-900 mb-6">تأكيد حجز الرحلة</h3>
+            <form id="bookingForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-slate-600 mb-2">الاسم الكامل</label>
+                    <input type="text" id="clientName" required placeholder="أدخل اسمك الكريم" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-600 mb-2">رقم الهاتف</label>
+                    <input type="tel" id="clientPhone" required placeholder="رقم التواصل" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-600 mb-2">الوجهة المختارة</label>
+                    <input type="text" id="selectedDestination" value="رحلة عامة" readonly class="w-full px-4 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-500 cursor-not-allowed">
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-sky-600 to-cyan-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-sky-500/30 hover:opacity-95 transition-all">
+                    إرسال الحجز النهائي
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- التذييل (Footer) -->
+    <footer class="bg-slate-900 text-white py-12 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-lg font-bold mb-2">عالم الرحلات - شريكك المثالي للسفر والسياحة</p>
+            <p class="text-slate-500 text-sm">جميع الحقوق محفوظة &copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- تشغيل مكتبة الأنيميشن AOS والبرمجة التفاعلية -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+
+        const modal = document.querySelector('.modal');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn');
+        const closeModalBtn = document.querySelector('.close-modal');
+        const bookingForm = document.getElementById('bookingForm');
+        const selectedDestInput = document.getElementById('selectedDestination');
+
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const dest = btn.getAttribute('data-destination');
+                if (dest) {
+                    selectedDestInput.value = dest;
+                } else {
+                    const searchDest = document.getElementById('search-dest').value;
+                    if(searchDest) selectedDestInput.value = searchDest;
+                }
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => { 
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        });
+
+        window.addEventListener('click', (e) => { 
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        });
+
+        bookingForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const clientName = document.getElementById('clientName').value;
+            const clientPhone = document.getElementById('clientPhone').value;
+            const destination = selectedDestInput.value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ clientName, clientPhone, destination })
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'تم الحجز بنجاح!',
+                        text: `رقم الحجز الخاص بك: #${data.bookingId}`,
+                        confirmButtonColor: '#0284c7'
+                    });
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    bookingForm.reset();
+                } else {
+                    Swal.fire({ icon: 'error', title: 'خطأ', text: data.message });
+                }
+            } catch (error) {
+                Swal.fire({ icon: 'error', title: 'خطأ', text: 'تعذر الاتصال بالخادم. تأكد من تشغيل server.js' });
+            }
+        });
+    </script>
+</body>
+</html>

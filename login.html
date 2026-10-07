@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل دخول المسؤول - عالم الرحلات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: #1d3557; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-card { background: white; padding: 40px; border-radius: 12px; width: 100%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-align: center; }
+        .login-card h2 { color: #1d3557; margin-bottom: 25px; font-size: 24px; }
+        .form-group { margin-bottom: 20px; text-align: right; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; font-size: 15px; }
+        .btn-login { background-color: #0077b6; color: white; border: none; width: 100%; padding: 12px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+        .btn-login:hover { background-color: #005f73; }
+        .back-site { display: block; margin-top: 15px; color: #666; text-decoration: none; font-size: 14px; }
+        .back-site:hover { color: #0077b6; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h2><i class="fa-solid fa-lock"></i> دخول المسؤول</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label>اسم المستخدم</label>
+                <input type="text" id="username" required placeholder="admin">
+            </div>
+            <div class="form-group">
+                <label>كلمة المرور</label>
+                <input type="password" id="password" required placeholder="12345">
+            </div>
+            <button type="submit" class="btn-login">تسجيل الدخول</button>
+        </form>
+        <a href="t.html" class="back-site"><i class="fa-solid fa-arrow-right"></i> العودة للموقع الرئيسي</a>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // التحقق المباشر بدون مشاكل سيرفر
+            if (username === 'admin' && password === '12345') {
+                localStorage.setItem('isAdminLoggedIn', 'true');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'تم تسجيل الدخول بنجاح',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    window.location.href = 'admin.html';
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'خطأ',
+                    text: 'اسم المستخدم أو كلمة المرور غير صحيحة! (استخدم admin و 12345)'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
