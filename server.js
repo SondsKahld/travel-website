@@ -76,4 +76,4 @@ app.post('/api/admin/login', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`الخادم يعمل حالياً على الرابط: http://localhost:${PORT}`);
-});
+})
